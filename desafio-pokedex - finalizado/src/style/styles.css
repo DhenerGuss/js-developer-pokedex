@@ -163,6 +163,40 @@ body {
   cursor: pointer;
 }
 
+/* ========================= ESTILOS PARA OS ICONES =================== */
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px 0;
+}
+
+.modal-header i {
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.2s ease;
+}
+
+.modal-header i:hover {
+  color: #CCC;
+}
+.modal-header .favorite-icon:hover {
+  color: #e91e63;
+}
+.modal-header #left,
+.modal-header #right {
+  position: absolute;
+  top: 40%;
+  font-size: 24px;
+}
+.modal-header #left {
+  left: 0;
+}
+.modal-header #right {
+  right: 0;
+}
 /* ========================= ESTILOS DO MODAL =================== */
 .modal {
   position: fixed;
@@ -185,10 +219,11 @@ body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   border-radius: 1rem;
+  transform-origin: center;
 }
 
 .modal-content::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -196,33 +231,59 @@ body {
   height: 30%; /* Altura da parte colorida */
   z-index: -1;
 }
-.modal-content.grass::before { background-color: #77c850; }
-.modal-content.fire::before { background-color: #ee7f30; }
-.modal-content.water::before { background-color: #678fee; }
-.modal-content.electric::before { background-color: #f7cf2e; }
-.modal-content.ice::before { background-color: #98d5d7; }
-.modal-content.ground::before { background-color: #dfbf69; }
-.modal-content.flying::before { background-color: #a98ff0; }
-.modal-content.poison::before { background-color: #a040a0; }
-.modal-content.fighting::before { background-color: #bf3029; }
-.modal-content.psychic::before { background-color: #f65687; }
-.modal-content.dark::before { background-color: #725847; }
-.modal-content.rock::before { background-color: #b8a137; }
-.modal-content.bug::before { background-color: #a8b720; }
-.modal-content.ghost::before { background-color: #6e5896; }
-.modal-content.steel::before { background-color: #b9b7cf; }
-.modal-content.dragon::before { background-color: #6f38f6; }
-.modal-content.fairy::before { background-color: #f9aec7; }
-.modal-content.normal::before { background-color: #a6a877; }
-
-
-.close-modal {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
-  cursor: pointer;
-  color: #333;
+.modal-content.grass::before {
+  background-color: #77c850;
+}
+.modal-content.fire::before {
+  background-color: #ee7f30;
+}
+.modal-content.water::before {
+  background-color: #678fee;
+}
+.modal-content.electric::before {
+  background-color: #f7cf2e;
+}
+.modal-content.ice::before {
+  background-color: #98d5d7;
+}
+.modal-content.ground::before {
+  background-color: #dfbf69;
+}
+.modal-content.flying::before {
+  background-color: #a98ff0;
+}
+.modal-content.poison::before {
+  background-color: #a040a0;
+}
+.modal-content.fighting::before {
+  background-color: #bf3029;
+}
+.modal-content.psychic::before {
+  background-color: #f65687;
+}
+.modal-content.dark::before {
+  background-color: #725847;
+}
+.modal-content.rock::before {
+  background-color: #b8a137;
+}
+.modal-content.bug::before {
+  background-color: #a8b720;
+}
+.modal-content.ghost::before {
+  background-color: #6e5896;
+}
+.modal-content.steel::before {
+  background-color: #b9b7cf;
+}
+.modal-content.dragon::before {
+  background-color: #6f38f6;
+}
+.modal-content.fairy::before {
+  background-color: #f9aec7;
+}
+.modal-content.normal::before {
+  background-color: #a6a877;
 }
 
 .close-modal:hover {
@@ -248,12 +309,12 @@ body {
   padding-top: 20px;
 }
 .pokemon-detail .number {
-  font-size: .925rem;
+  font-size: 0.925rem;
   position: absolute;
   top: 50px;
   left: 90%;
   opacity: 0.9;
-  color: #FFF;
+  color: #fff;
 }
 
 .pokemon-detail .types {
@@ -306,6 +367,37 @@ body {
   padding: 10px;
   border-radius: 1rem;
   max-width: 100%;
+}
+
+/* ================== ANIMAÇÕES MODAL ================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.modal.show .modal-content {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.modal.hide .modal-content {
+  animation: fadeOut 0.2s ease forwards;
 }
 
 /* ========================= Media Queries =================== */
